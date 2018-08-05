@@ -4,7 +4,7 @@ const Broadcaster = require('./../model').Jukebox;
 module.exports = {
   findOne: async (req, res) => {
     try {
-      const jukebox = await Jukebox.findById(req.body.id);
+      const jukebox = await Jukebox.findOne(req.body.id);
       res.json(jukebox)
     } catch(e) {
       res.json(e);
@@ -27,14 +27,4 @@ module.exports = {
       res.json(e);
     }
   },
-  create: (req, res) => {
-    const newJukebox = new Jukebox({
-      tracks: [],
-      totalContributions: 0,
-      username: req.body.username
-      contributors: []
-    });
-
-
-  }
 };
