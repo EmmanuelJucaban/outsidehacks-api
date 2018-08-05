@@ -50,10 +50,12 @@ module.exports = {
         console.log(jukebox);
         res.json(jukebox.populate('tracks').populate('contributors'));
       }
+    } catch(e) {
+      res.json(e);
     }
   },
   deleteTrack: async (req, res) => {
-    try {      
+    try {
       const jukebox = await jukebox.findbyId(req.body.id);
       jukebox.shift();
       await jukebox.save();
