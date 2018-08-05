@@ -2,13 +2,8 @@ const Broadcaster = require('./../model').Broadcaster;
 const Jukebox = require('./../model').Jukebox;
 
 module.exports = {
-  findAll: (req, res) => {
-    Broadcaster
-    .find()
-    .then(broadcasters => res.json(broadcasters));
-  },
   findOne: (req, res) => {
-     roadcaster
+     Broadcaster
     .findById(req.body.id)
     .then(broadcaster => res.json(broadcaster))
   },

@@ -6,7 +6,7 @@ const BroadcasterSchema = new Schema({
   accessToken : String,
   channelId   : String,
   jukebox     : {type: Schema.Types.ObjectId, ref: 'Jukebox'},
-  subscribers : [{type: Schema.Types.ObjectId, ref: 'Subscribers'}],
+  subscribers : [{type: Schema.Types.ObjectId, ref: 'Subscriber'}],
 });
 
 

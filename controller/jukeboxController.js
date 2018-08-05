@@ -1,5 +1,6 @@
 const Track        = require('./../model').Track;
-const Broadcaster = require('./../model').Jukebox;
+const Broadcaster  = require('./../model').Broadcaster;
+const Jukebox      = require('./../model').Jukebox;
 
 module.exports = {
   findOne: async (req, res) => {
@@ -16,6 +17,8 @@ module.exports = {
       title   : req.body.title,
       trackId : req.body.trackId
     });
+
+
 
     try {
       await newSong.save();

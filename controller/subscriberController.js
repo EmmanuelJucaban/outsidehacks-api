@@ -17,5 +17,5 @@ module.exports = {
     } catch(e) {
       res.json(e);
     }
-  }
-}
+  },
+};
