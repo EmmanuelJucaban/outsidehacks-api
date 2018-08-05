@@ -7,7 +7,7 @@ const SubscriberSchema = new Schema({
   contribution: [{
     channel: {
       type: Schema.Types.ObjectId,
-      ref: "broadcasters"
+      ref: "Broadcaster"
     },
     score: Number,
   }],

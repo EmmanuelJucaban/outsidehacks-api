@@ -6,6 +6,7 @@ module.exports = {
   findOne: async (req, res) => {
     try {
       const jukebox = await Jukebox.findById(req.params.id).populate('tracks').populate('contributors');
+      console.log(jukebox.contributors);
       res.json(jukebox)
     } catch(e) {
       res.json(e);
@@ -29,7 +30,8 @@ module.exports = {
         image    : req.body.image,
       });
       const jukebox = await Jukebox.findById(req.body.jukeboxId).populate('tracks').populate('contributors');
-      console.log(jukebox);
+      // const user = await Subscriber.findById(req.body.id);
+      user.contribution.push({_id: jukebox._id, score: user.score++});
       newSong = await newSong.save();
       jukebox.tracks.push(newSong);
       const user = jukebox.contributors.find(user => user._id === req.body.userId);
@@ -57,9 +59,9 @@ module.exports = {
   deleteTrack: async (req, res) => {
     try {
       const jukebox = await Jukebox.findById(req.body.id).populate('tracks');
-      jukebox.tracks.shift();
+      const deleted = jukebox.tracks.shift();
       await jukebox.save();
-      res.json(jukebox.tracks);
+      res.json({tracks: jukebox.tracks, deleted});
     } catch(e) {
       res.json(e);
     }

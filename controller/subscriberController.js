@@ -8,7 +8,8 @@ module.exports = {
       let broadcaster = await Broadcaster.findById(req.body.casterId);
       let newSub = new Subscriber({
         username      : req.body.username,
-        subId         : req.body.subId
+        subId         : req.body.subId,
+        contribution  : [{_id: Broadcaster._id, score: 1}]
       });
       newSub = await newSub.save();
       broadcaster.subscribers.push(newSub);
