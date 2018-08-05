@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
   Broadcaster :  require('./Broadcaster'),
   Jukebox     :  require('./Jukebox'),
   Subscriber  :  require('./Subscriber'),

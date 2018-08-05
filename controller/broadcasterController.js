@@ -1,5 +1,7 @@
+const mongoose = require('mongoose');
 const Broadcaster = require('./../model').Broadcaster;
 const Jukebox = require('./../model').Jukebox;
+
 
 module.exports = {
   findOne: (req, res) => {
