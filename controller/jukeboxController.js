@@ -17,9 +17,10 @@ module.exports = {
 
     try {
       let newSong = new Track({
-        artist  : req.body.artist,
-        title   : req.body.title,
-        trackId : req.body.trackId
+        artist   : req.body.artist,
+        title    : req.body.title,
+        trackId  : req.body.trackId,
+        duration : req.body.duration,
       });
       const jukebox = await Jukebox.findById(req.body.casterId).populate('tracks');
       console.log(jukebox);
@@ -50,4 +51,10 @@ module.exports = {
       res.json(e);
     }
   },
+  deleteTrack: async (req, res) => {
+    const jukebox = await Jukebox.findById(req.body.jukeboxId).populate('tracks');
+    jukebox.tracks.shift();
+    await jukebox.save();
+    res.json(jukebox.tracks);
+  }
 };
