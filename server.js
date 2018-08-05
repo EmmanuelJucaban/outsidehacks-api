@@ -8,9 +8,9 @@ const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 const axios      = require('axios');
 mongoose.connect(process.env.MONGODB_URI);
 
-const TWITCH_CLIENT_ID = '1v21lbgumahuvy0u0hokxxs5531iwl';
-const TWITCH_SECRET    = 'NgPVDwh8qP8vhumHrhwUQ1EK1zPeGuWItg8baSUwDbM=';
-const SESSION_SECRET   = 'Never underestimate the power of the scouts code';
+const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+const TWITCH_SECRET    = process.env.TWITCH_SECRET;
+const SESSION_SECRET   = process.env.SESSION_SECRET;
 const CALLBACK_URL     = 'https://localhost:3000';
 
 const app = express();
