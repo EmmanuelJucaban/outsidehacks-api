@@ -6,7 +6,7 @@ const Jukebox = require('./../model').Jukebox;
 module.exports = {
   findOne: (req, res) => {
      Broadcaster
-    .findById(req.body.id)
+    .findById(req.params.id)
     .then(broadcaster => res.json(broadcaster))
   },
   create: async (req, res) => {
