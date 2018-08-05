@@ -56,10 +56,10 @@ module.exports = {
   },
   deleteTrack: async (req, res) => {
     try {
-      const jukebox = await jukebox.findbyId(req.body.id);
+      const jukebox = await Jukebox.findbyId(req.body.id);
       jukebox.shift();
       await jukebox.save();
-      res.json(jukebox);
+      res.json(jukebox.track);
     } catch(e) {
       res.json(e);
     }
