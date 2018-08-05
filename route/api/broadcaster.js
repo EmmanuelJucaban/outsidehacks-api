@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const broadcasterController = require('./../controller/broadcasterController');
+const broadcasterController = require('./../../controller/broadcasterController');
 
 router.route('/')
   .get(broadcasterController.findOne)

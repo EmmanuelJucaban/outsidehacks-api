@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const jukeboxController = require('./../controller/jukeboxController');
+const jukeboxController = require('./../../controller/jukeboxController');
 
 router.route('/')
   .get(broadcasterController.findOne)
