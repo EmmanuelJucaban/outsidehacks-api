@@ -13,14 +13,6 @@ module.exports = {
     }
   },
   addTrack: async (req, res) => {
-    const newSong = new Track({
-      artist  : req.body.artist,
-      title   : req.body.title,
-      trackId : req.body.trackId
-    });
-
-
-
     try {
       let newSong = new Track({
         artist   : req.body.artist,
