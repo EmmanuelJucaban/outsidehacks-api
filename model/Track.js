@@ -7,6 +7,7 @@ const TrackSchema = new Schema({
   title    : String,
   trackId  : Number,
   duration : Number,
+  image    : String
 });
 
 module.exports = mongoose.model('Track', TrackSchema);
