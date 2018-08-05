@@ -2,8 +2,8 @@ const router = require('express').Router();
 const jukeboxController = require('./../../controller/jukeboxController');
 
 router.route('/')
-  .get(broadcasterController.findOne)
-  .post(broadcasterController.addTrack);
+  .get(jukeboxController.findOne)
+  .post(jukeboxController.addTrack);
 
 
 module.exports = router;
