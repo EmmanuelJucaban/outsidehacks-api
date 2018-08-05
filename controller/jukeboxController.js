@@ -12,6 +12,11 @@ module.exports = {
     }
   },
   addTrack: async (req, res) => {
+    const newSong = new Track({
+      artist  : req.body.artist,
+      title   : req.body.title,
+      trackId : req.body.trackId
+    });
 
 
 
@@ -48,14 +53,14 @@ module.exports = {
 
 
 
+    try {
+      await newSong.save();
+      const jukebox = await jukebox.findbyId(req.body.id);
+      jukebox.shift();
+      await jukebox.save();
+      res.json(jukebox);
     } catch(e) {
       res.json(e);
     }
   },
-  deleteTrack: async (req, res) => {
-    const jukebox = await Jukebox.findById(req.body.jukeboxId).populate('tracks');
-    jukebox.tracks.shift();
-    await jukebox.save();
-    res.json(jukebox.tracks);
-  }
 };
