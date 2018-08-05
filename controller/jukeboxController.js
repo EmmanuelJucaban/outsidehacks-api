@@ -13,6 +13,7 @@ module.exports = {
     }
   },
   addTrack: async (req, res) => {
+
     try {
       let newSong = new Track({
         artist   : req.body.artist,
@@ -21,9 +22,8 @@ module.exports = {
         duration : req.body.duration,
         image    : req.body.image,
       });
-      const jukebox = await Jukebox.findById(req.body.jukeboxId).populate('tracks').populate('contributors');
-      // const user = await Subscriber.findById(req.body.id);
-      user.contribution.push({_id: jukebox._id, score: user.score++});
+      const jukebox = await Jukebox.findById(req.body.casterId).populate('tracks').populate('contributors');
+      console.log(jukebox);
       newSong = await newSong.save();
       jukebox.tracks.push(newSong);
       const user = jukebox.contributors.find(user => user._id === req.body.userId);
@@ -34,7 +34,7 @@ module.exports = {
         jukebox.totalContributions += user.contribution;
         await jukebox.save();
         console.log(jukebox);
-        res.json(jukebox.populate('tracks'));
+        res.json(jukebox);
       }
       if(!user) {
         console.log("fired");
@@ -42,7 +42,7 @@ module.exports = {
         jukebox.totalContributions++;
         await jukebox.save();
         console.log(jukebox);
-        res.json(jukebox.populate('tracks').populate('contributors'));
+        res.json(jukebox);
       }
     } catch(e) {
       res.json(e);
