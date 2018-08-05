@@ -28,7 +28,7 @@ module.exports = {
         duration : req.body.duration,
         image    : req.body.image,
       });
-      const jukebox = await Jukebox.findById(req.body.casterId).populate('tracks').populate('contributors');
+      const jukebox = await Jukebox.findById(req.body.jukeboxId).populate('tracks').populate('contributors');
       console.log(jukebox);
       newSong = await newSong.save();
       jukebox.tracks.push(newSong);
