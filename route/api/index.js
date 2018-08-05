@@ -1,12 +1,12 @@
 const router              = require('express').Router();
 const jukeboxRoutes       = require('./jukebox');
 const broadcasterRoutes   = require('./broadcaster');
-const subscriberRoutes    = require('./subcriber');
+const subscriberRoutes    = require('./subscriber');
 const trackRoutes         = require('./track')
 
 router.use('/jukebox', jukeboxRoutes);
 router.use('/track', trackRoutes);
 router.use('/broadcaster', broadcasterRoutes);
-router.use('/subcriber', subscriberRoutes);
+router.use('/subscriber', subscriberRoutes);
 
 module.exports = router;
