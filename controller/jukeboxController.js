@@ -5,7 +5,7 @@ const Jukebox      = require('./../model').Jukebox;
 module.exports = {
   findOne: async (req, res) => {
     try {
-      const jukebox = await Jukebox.findById(req.params.id).populate('tracks');
+      const jukebox = await Jukebox.findById(req.params.id).populate('tracks').populate('');
       res.json(jukebox)
     } catch(e) {
       res.json(e);
@@ -21,6 +21,7 @@ module.exports = {
         title    : req.body.title,
         trackId  : req.body.trackId,
         duration : req.body.duration,
+        image    : req.body.image,
       });
       const jukebox = await Jukebox.findById(req.body.casterId).populate('tracks');
       console.log(jukebox);
