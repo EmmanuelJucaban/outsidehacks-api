@@ -9,7 +9,7 @@ module.exports = {
   },
   create: async (req, res) => {
     const newCaster = new Broadcaster({
-      userId: req.body.userId
+      userId: req.body.userId,
       accessToken: req.body.accessToken,
       channelId: req.body.channelId
     });
