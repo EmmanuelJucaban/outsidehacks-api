@@ -23,7 +23,7 @@ module.exports = {
         image    : req.body.image,
       });
       console.log(newSong, "safsaihdbaidhva");
-      const jukebox = await Jukebox.findById(req.body.casterId).populate('tracks').populate('contributors');
+      const jukebox = await Jukebox.findById(req.body.jukeboxId).populate('tracks').populate('contributors');
 
       newSong = await newSong.save();
 
