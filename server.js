@@ -1,7 +1,7 @@
 const express    = require('express');
 const bodyParser = require('body-parser');
 const mongoose   = require('mongoose');
-const routes     = require('./routes');
+const routes     = require('./route');
 
 
 mongoose.connect(process.env.MONGODB_URI);
