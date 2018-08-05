@@ -6,11 +6,11 @@ const routes     = require('./route');
 
 mongoose.connect(process.env.MONGODB_URI);
 
+const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-const app = express();
 
 app.use('/', routes);
 
