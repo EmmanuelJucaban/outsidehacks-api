@@ -33,7 +33,7 @@ module.exports = {
         jukebox.totalContributions += user.contribution;
         await jukebox.save();
         console.log(jukebox);
-        res.json(jukebox);
+        res.json(jukebox.populate('tracks'));
       }
       if(!user) {
         console.log("fired");
