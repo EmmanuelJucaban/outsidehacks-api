@@ -2,8 +2,9 @@ const router = require('express').Router();
 const jukeboxController = require('./../../controller/jukeboxController');
 
 router.route('/')
-  .get(jukeboxController.findOne)
   .post(jukeboxController.addTrack);
 
+router.route('/:id')
+  .get(jukeboxController.findOne);
 
 module.exports = router;
